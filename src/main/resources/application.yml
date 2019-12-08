@@ -1,6 +1,7 @@
 spring:
   datasource:
     url: jdbc:h2:tcp://localhost/~/jpashop;MVCC=TRUE
+#    url: jdbc:h2:~/jpashop;DB_CLOSE_DELAY=-1;DB_CLOSE_ON_EXIT=FALSE # mv.db 자동 생성 h2.sh 실행 없이 사용 가능
     username: sa
     password:
     driver-class-name: org.h2.Driver
