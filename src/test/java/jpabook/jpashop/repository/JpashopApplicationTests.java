@@ -1,4 +1,4 @@
-package jpabook.jpashop;
+package jpabook.jpashop.repository;
 
 import org.junit.Test;
 import org.junit.runner.RunWith;

@@ -20,6 +20,7 @@ public class MemberController {
 
     @GetMapping(value = "/members/new")
     public String createForm(Model model) {
+        // 빈껍데기라도 보내면 validation을 해준다.
         model.addAttribute("memberForm", new MemberForm());
 
         return "members/createMemberForm";
