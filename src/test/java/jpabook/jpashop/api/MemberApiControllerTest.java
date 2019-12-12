@@ -1,9 +1,8 @@
 package jpabook.jpashop.api;
 
 import com.fasterxml.jackson.databind.ObjectMapper;
-import jpabook.jpashop.domain.*;
-import jpabook.jpashop.domain.item.Book;
-import jpabook.jpashop.domain.item.Item;
+import jpabook.jpashop.domain.Address;
+import jpabook.jpashop.domain.Member;
 import jpabook.jpashop.service.MemberService;
 import org.hamcrest.collection.IsCollectionWithSize;
 import org.junit.Before;
@@ -20,13 +19,9 @@ import org.springframework.test.web.servlet.result.MockMvcResultHandlers;
 import java.util.ArrayList;
 import java.util.List;
 
-import static org.junit.Assert.*;
 import static org.mockito.ArgumentMatchers.any;
-import static org.mockito.ArgumentMatchers.contains;
 import static org.mockito.BDDMockito.given;
-import static org.springframework.test.web.servlet.request.MockMvcRequestBuilders.get;
-import static org.springframework.test.web.servlet.request.MockMvcRequestBuilders.post;
-import static org.springframework.test.web.servlet.request.MockMvcRequestBuilders.put;
+import static org.springframework.test.web.servlet.request.MockMvcRequestBuilders.*;
 import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.jsonPath;
 import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.status;
 
@@ -180,22 +175,5 @@ public class MemberApiControllerTest {
         member.setName("회원1");
         member.setAddress(new Address("서울", "강가", "123-123"));
         return member;
-    }
-
-    private Book createBook(String name, int price, int stockQuantity) {
-        Book book = new Book();
-        book.setName(name);
-        book.setStockQuantity(stockQuantity);
-        book.setPrice(price);
-        return book;
-    }
-
-    private Order createOrder(Member member, Item item, int count) {
-        Delivery delivery = new Delivery();
-        delivery.setAddress(member.getAddress());
-        OrderItem orderItem = OrderItem.createOrderItem(item, item.getPrice(), count);
-        Order order = Order.createOrder(member, delivery, orderItem);
-
-        return order;
     }
 }
