@@ -69,7 +69,7 @@ public class MemberControllerTest {
         mvc.perform(get("/members")
                 .contentType(MediaType.APPLICATION_JSON_UTF8))
                 .andExpect(status().isOk())
-                .andExpect(model().attributeExists("members")) // model에 "jobs" 라는 key가 존재하는지 확인
+                .andExpect(model().attributeExists("members")) // model에 "members" 라는 key가 존재하는지 확인
                 .andExpect(model().attribute("members", IsCollectionWithSize.hasSize(1))) // jobs model의 size가 1인지 확인
                 .andDo(MockMvcResultHandlers.print()); // test 응답 결과에 대한 모든 내용 출력
 
