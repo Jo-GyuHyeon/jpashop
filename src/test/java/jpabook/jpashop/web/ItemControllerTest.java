@@ -22,12 +22,8 @@ import java.util.List;
 
 import static org.hamcrest.Matchers.hasProperty;
 import static org.hamcrest.Matchers.is;
-import static org.mockito.ArgumentMatchers.contains;
 import static org.mockito.BDDMockito.given;
-import static org.mockito.Mockito.times;
-import static org.mockito.Mockito.verify;
 import static org.springframework.test.web.servlet.request.MockMvcRequestBuilders.get;
-import static org.junit.Assert.*;
 import static org.springframework.test.web.servlet.request.MockMvcRequestBuilders.post;
 import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.*;
 
@@ -107,7 +103,7 @@ public class ItemControllerTest {
                 .andExpect(view().name("items/updateItemForm"))
                 .andExpect(status().isOk())
                 .andExpect(model().attributeExists("form"))
-                .andExpect(model().attribute("form",hasProperty("name",is(book.getName()))))
+                .andExpect(model().attribute("form", hasProperty("name", is(book.getName()))))
                 .andDo(MockMvcResultHandlers.print());
         //then
     }
